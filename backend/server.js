@@ -8,7 +8,7 @@ const db = require("./db")
 const app = express();
 const PORT = 3000;
 
-const whitelist = ['https://proyecto-integrador-alt-f4.vercel.app'];
+const whitelist = ['proyectointegradoraltf4-production-cd0c.up.railway.app'];
 
 const corsOptions = {
   origin: function (origin, callback) {

@@ -58,7 +58,7 @@ const products = [
 
 let cart = [];
 let isLoggedIn = false;
-const API_BASE = "https://proyectointegradoraltf4-production.up.railway.app";
+const API_BASE = "proyectointegradoraltf4-production-cd0c.up.railway.app";
 
 
 const loginScreen = document.getElementById("loginScreen");
