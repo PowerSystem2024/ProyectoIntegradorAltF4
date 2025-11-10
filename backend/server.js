@@ -1,11 +1,29 @@
 // backend/server.js
 const express = require("express");
+const cors = require('cors');
 const bodyParser = require("body-parser");
 const usersRoutes = require("./routes/users"); // Importa las nuevas rutas
 const db = require("./db") 
 
 const app = express();
 const PORT = 3000;
+
+const whitelist = [
+  'https://proyecto-integrador-alt-f4.vercel.app/' // <-- URL DE TU FRONTEND EN VERCEL
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Permite peticiones si la URL está en la lista o si es una petición sin 'origin' (como Postman)
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('No permitido por CORS'));
+    }
+  }
+};
+
+app.use(cors(corsOptions));
 
 // Middleware: Permite que Express lea cuerpos de petición JSON (para POST y PUT)
 app.use(bodyParser.json());
@@ -179,9 +197,7 @@ app.post("/save_order", async (req, res) => {
   try {
     connection = await db.getConnection(); // Obtener una conexión del poolD
     await connection.beginTransaction();
-    console.log(normalizedPaymentMethod,"qweaaaaaaaaaaaaaaaaaaaaaa")
     if  (normalizedPaymentMethod === "card") {
-        console.log(normalizedPaymentMethod,"qwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
         // Estado inmediato para efectivo y tarjetas manuales
         orderStatus = "Pago con Tarjeta Credito"; // El pedido se confirma inmediatamente
     }else if 

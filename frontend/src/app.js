@@ -58,7 +58,7 @@ const products = [
 
 let cart = [];
 let isLoggedIn = false;
-const API_BASE = "https://proyecto-integrador-alt-f4.vercel.app/";
+const API_BASE = "proyectointegradoraltf4-production.up.railway.app";
 
 
 const loginScreen = document.getElementById("loginScreen");
