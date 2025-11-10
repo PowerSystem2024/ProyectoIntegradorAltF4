@@ -8,9 +8,7 @@ const db = require("./db")
 const app = express();
 const PORT = 3000;
 
-const whitelist = [
-  'https://proyecto-integrador-alt-f4.vercel.app/' // <-- URL DE TU FRONTEND EN VERCEL
-];
+const whitelist = ['https://proyecto-integrador-alt-f4.vercel.app'];
 
 const corsOptions = {
   origin: function (origin, callback) {
@@ -28,20 +26,6 @@ app.use(cors(corsOptions));
 // Middleware: Permite que Express lea cuerpos de petición JSON (para POST y PUT)
 app.use(bodyParser.json());
 
-// CORS: Permitir peticiones desde el frontend
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
-  if (req.method === "OPTIONS") {
-    res.sendStatus(200);
-  } else {
-    next();
-  }
-});
 
 // SDK de Mercado Pago
 const { MercadoPagoConfig, Preference } = require("mercadopago");
