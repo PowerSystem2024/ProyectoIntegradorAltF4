@@ -196,7 +196,7 @@ app.post("/save_order", async (req, res) => {
 });
 
 // RUTA CATCH-ALL PARA SERVIR EL FRONTEND
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(frontendPath, 'index.html'));
 });
 
