@@ -203,6 +203,6 @@ app.get('/*', (req, res) => {
 
 
 // INICIAR EL SERVIDOR 
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, () => {
   console.log(`Servidor Express corriendo en el puerto ${PORT}`);
 });
