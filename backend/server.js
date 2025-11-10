@@ -7,7 +7,10 @@ const db = require("./db");
 const { MercadoPagoConfig, Preference } = require("mercadopago");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+    console.log(`Servidor Express corriendo en el puerto ${PORT}`);
+});
 
 // --- 1. CONFIGURACIÓN DE MIDDLEWARE ---
 
