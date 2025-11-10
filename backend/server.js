@@ -8,7 +8,7 @@ const db = require("./db");
 const { MercadoPagoConfig, Preference } = require("mercadopago");
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 
 
 // --- 1. CONFIGURACIÓN DE MIDDLEWARE ---
@@ -21,7 +21,8 @@ app.use(
       "http://localhost:5173", // tu frontend local (vite, react, etc.)
       "https://majestic-cucurucho-838062.netlify.app", // dominio del frontend en producción
     ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true,
   })
 );
 
@@ -205,11 +206,6 @@ app.post("/save_order", async (req, res) => {
       connection.release(); 
     }
   }
-});
-
-// RUTA CATCH-ALL PARA SERVIR EL FRONTEND
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(frontendPath, 'index.html'));
 });
 
 
