@@ -19,10 +19,9 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173", // tu frontend local (vite, react, etc.)
-      "https://majestic-cucurucho-838062.netlify.app/", // dominio del frontend en producción
+      "https://majestic-cucurucho-838062.netlify.app", // dominio del frontend en producción
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
   })
 );
 
