@@ -195,13 +195,13 @@ app.post("/save_order", async (req, res) => {
   }
 });
 
-// --- 4. RUTA CATCH-ALL PARA SERVIR EL FRONTEND ---
-app.get('/(.*)', (req, res) => {
+// RUTA CATCH-ALL PARA SERVIR EL FRONTEND
+app.get('*', (req, res) => {
   res.sendFile(path.join(frontendPath, 'index.html'));
 });
 
 
-// --- 5. INICIAR EL SERVIDOR (SIEMPRE AL FINAL) ---
+// INICIAR EL SERVIDOR 
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor Express corriendo en el puerto ${PORT}`);
 });
