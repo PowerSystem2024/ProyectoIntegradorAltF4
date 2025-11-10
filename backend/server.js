@@ -2,6 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require('path');
+const cors = require("cors");
 const usersRoutes = require("./routes/users");
 const db = require("./db");
 const { MercadoPagoConfig, Preference } = require("mercadopago");
@@ -13,6 +14,17 @@ const PORT = process.env.PORT || 8080;
 // --- 1. CONFIGURACIÓN DE MIDDLEWARE ---
 
 app.use(bodyParser.json());
+
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173", // tu frontend local (vite, react, etc.)
+      "https://majestic-cucurucho-838062.netlify.app/", // dominio del frontend en producción
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 // Sirve los archivos estáticos del frontend
 const frontendPath = path.join(__dirname, '../frontend');
