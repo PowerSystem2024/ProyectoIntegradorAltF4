@@ -577,7 +577,7 @@ async function handleCheckout(e) {
   };
   try {
     // LLAMADA AL BACKEND PARA GUARDAR EL PEDIDO
-    const res = await fetch(`${API_BASE}/save_order`, {
+    const res = await fetch(`${API_BASE}/api/save_order`, {
       method: 'POST',
       headers: { 
           'Content-Type': 'application/json',
@@ -691,7 +691,7 @@ async function renderMercadoPagoButton() {
   const total = subtotal + 0;
   console.log(subtotal)
 
-    const fetchRes = await fetch(`${API_BASE}/create_preference`, {
+    const fetchRes = await fetch(`${API_BASE}/api/create_preference`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

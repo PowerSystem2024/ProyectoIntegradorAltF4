@@ -43,7 +43,7 @@ const client = new MercadoPagoConfig({
 app.use("/api/users", usersRoutes);
 
 // Ruta para crear preferencia de Mercado Pago
-app.post("/create_preference", async (req, res) => {
+app.post("/api/create_preference", async (req, res) => {
   const id_user = 1;
   const { 
         items: cartItems , 
@@ -137,7 +137,7 @@ app.post("/create_preference", async (req, res) => {
 });
 
 // Ruta para guardar pedidos (Efectivo/Tarjeta)
-app.post("/save_order", async (req, res) => {
+app.post("/api/save_order", async (req, res) => {
   const id_user = 1;
   const { cartItems, totalPedido: total = 0 , paymentMethod = 'efectivo', mpTransactionId = null, name = "", address = " ", phone =" " } = req.body;
   
