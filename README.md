@@ -9,7 +9,7 @@
  Este proyecto está construido con un stack de tecnologías moderno para aplicaciones web:Frontend JavaScript , HTML, CSS. Backend Node.js con Base de Datos MySQL.
  
 ⚙️ Instalación y Puesta en Marcha. Sigue estos pasos para levantar el proyecto en tu entorno local.
-1. Clonar el Repositorio Bash git clone "https://github.com/juanivera12/ProyectoIntegrador4toSemestre.git"
+1. Clonar el Repositorio Bash git clone "https://github.com/PowerSystem2024/ProyectoIntegradorAltF4"
 cd ProyectoIntegrador4toSemestre
 2. B. Pasos de Instalación
 Requisitos:
