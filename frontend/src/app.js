@@ -691,7 +691,7 @@ async function renderMercadoPagoButton() {
   const total = subtotal + 0;
   console.log(subtotal)
 
-    const fetchRes = await fetch("http://localhost:3000/create_preference", {
+    const fetchRes = await fetch("/create_preference", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
